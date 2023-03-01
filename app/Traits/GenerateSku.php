@@ -72,13 +72,13 @@ trait GenerateSku
     private function wrkiSku(array $data) :array
     {
 //      produkt.produkt+produkt.produktdata[i].typ+"-"+produkt.produktdata[i].hojd+"x"+produkt.produktlangder[x].langd+"("+produkt.produktlangder[x].sektioner.replace('sektioner', '').replace('sektion', '').replace(' ', '').replace(' ', '')+")"
-        return $result = $data['produkt'] . $data['type'] . "-" . $data['height'] . "x" . $data['length'] . "(" . str_replace(array('sections', 'section', ' '), '', $data['sections']) . ")";
+        return [$data['produkt'] . $data['type'] . "-" . $data['height'] . "x" . $data['length'] . "(" . str_replace(array('sections', 'section', ' '), '', $data['sections']) . ")"];
 
     }
     private function wkkSku(array $data) :array
     {
 //      produkt.produkt+produkt.produktdata[i].typ.charAt(0)+"-"+Number(produkt.produktdata[i].hojd)/10+"-"+produkt.produktlangder[x].langd;
-        return $data['produkt'] . substr($data['type'], 0, 1) . "-" . ($data['height'] / 10) . "-" . $data['length'];
+        return [$data['produkt'] . substr($data['type'], 0, 1) . "-" . ($data['height'] / 10) . "-" . $data['length']];
     }
     private function wksSku(array $data) :array
     {
@@ -89,13 +89,13 @@ trait GenerateSku
     private function wrlSku(array $data) :array
     {
 //        produkt.produkt+" "+Number(produkt.produktdata[i].hojd)+"/"+Number(produkt.produktlangder[x].langd)+" "+((produkt.produktdata[i].typ.includes("Dubbel")) ? "Dubbel" : "Enkel")
-        return $data['produkt'] . " " . $data['height'] . "/" . $data['length'] . " " . (($data['type'] === "Dubbel") ? "Dubbel" : "Enkel");
+        return [$data['produkt'] . " " . $data['height'] . "/" . $data['length'] . " " . (($data['type'] === "Dubbel") ? "Dubbel" : "Enkel")];
 
     }
     private function wrbSku(array $data) :array
     {
 //        produkt.produkt+" "+Number(produkt.produktlangder[x].langd)
-        return $data['produkt'] . " " . $data['length'];
+        return [$data['produkt'] . " " . $data['length']];
     }
     private function wktSku(array $data) :array
     {
@@ -106,31 +106,31 @@ trait GenerateSku
 //        var matt = matt4.replace(' ', '');
 //        produkt.produktdata[i].typ+" "+matt+"-"+produkt.produktlangder[x].langd
         $matt = str_replace(array('ø', ' mm', ' '), '', $data['height']);
-        return $data['type'] . " " . $matt . "-" . $data['length'];
+        return [$data['type'] . " " . $matt . "-" . $data['length']];
     }
     private function wrvSku(array $data) :array
     {
 //        produkt.produkt+" "+produkt.produktdata[i].typ+"-"+produkt.produktdata[i].hojd+"x"+produkt.produktlangder[x].langd,
-        return $data['produkt'] . " " . $data['type'] . "-" . $data['height'] . "x" . $data['length'];
+        return [$data['produkt'] . " " . $data['type'] . "-" . $data['height'] . "x" . $data['length']];
     }
     private function wrrSku(array $data) :array
     {
 //        produkt.produkt+" "+produkt.produktdata[i].typ+" "+produkt.produktdata[i].hojd+"-"+produkt.produktlangder[x].langd,
-        return $data['produkt'] . " " . $data['type'] . " " . $data['height'] . "-" . $data['length'];
+        return [$data['produkt'] . " " . $data['type'] . " " . $data['height'] . "-" . $data['length']];
     }
     private function wrriSku(array $data) :array
     {
 //        produkt.produkt+" "+produkt.produktdata[i].typ+" "+produkt.produktdata[i].hojd+"-"+produkt.produktlangder[x].langd,
-        return $data['produkt'] . " " . $data['typ'] . " " . $data['height'] . "-" . $data['length'];
+        return [$data['produkt'] . " " . $data['typ'] . " " . $data['height'] . "-" . $data['length']];
     }
     private function wrrhSku(array $data) :array
     {
 //        produkt.produkt+" "+produkt.produktdata[i].typ+" "+produkt.produktdata[i].hojd+"-"+produkt.produktlangder[x].langd
-        return $data['produkt'] . " " . $data['type'] . " " . $data['height'] . "-" . $data['length'];;
+        return [$data['produkt'] . " " . $data['type'] . " " . $data['height'] . "-" . $data['length']];
     }
     private function wrrhiSku(array $data) :array
     {
 //        produkt.produkt+" "+produkt.produktdata[i].typ+" "+produkt.produktdata[i].hojd+"-"+produkt.produktlangder[x].langd
-        return $data['produkt'] . " " . $data['type'] . " " . $data['height'] . "-" . $data['length'];
+        return [$data['produkt'] . " " . $data['type'] . " " . $data['height'] . "-" . $data['length']];
     }
 }
