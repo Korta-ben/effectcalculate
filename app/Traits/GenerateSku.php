@@ -67,6 +67,8 @@ trait GenerateSku
     private function oneSku(array $data): array
     {
 //                dd($data);
+        $data['length'] = substr("0".$data['length']/100,-2);
+        $data['height'] = $data['height']/100;
         $name = $data['productName'] . " " . $data['type'] . "-" . $data['height'] . $data['length'] . " " . $data['side'];
         $articleNumber = $data['type'] . $data['height'] . $data['length'] . $data['product_id'] . substr($data['side'], 0, 1);
         return [

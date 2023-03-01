@@ -24,10 +24,10 @@ class SkuGeneratorController extends Controller
             'data.productName' => 'string',
             'data.product_id' => 'string',
             'data.type' => 'string',
-            'data.height' => 'string',
-            'data.length' => 'string',
-            'data.side' => 'string',
-            'data.sections' => 'string'
+            'data.height' => 'nullable|string',
+            'data.length' => 'nullable|string',
+            'data.side' => 'nullable|string',
+            'data.sections' => 'nullable|string'
         ]);
 
 
