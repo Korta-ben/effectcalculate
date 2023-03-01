@@ -13,6 +13,7 @@ class SkuGeneratorController extends Controller
     //
     public function index(Request $request, $product)
     {
+
 //        produkt.produkt
 //        produkt.produktlangder[x].langd
 //        produkt.produktdata[i].typ
@@ -20,13 +21,16 @@ class SkuGeneratorController extends Controller
 //        produkt.produktlangder[x].sektioner
 
         $validated = $request->validate([
-            'data.productName' => 'string|max:255',
-            'data.product_id' => 'string|max:255',
-            'data.type' => 'integer',
-            'data.height' => 'integer',
-            'data.length' => 'integer',
-            'data.side' => 'string|max:255'
+            'data.productName' => 'string',
+            'data.product_id' => 'string',
+            'data.type' => 'string',
+            'data.height' => 'string',
+            'data.length' => 'string',
+            'data.side' => 'string',
+            'data.sections' => 'string'
         ]);
+
+
 
         if($validated)
         {
